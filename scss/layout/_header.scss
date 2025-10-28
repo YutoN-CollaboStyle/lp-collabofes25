@@ -1,0 +1,265 @@
+@use "../globals/global" as *;
+
+.header {
+    width: 90%;
+    max-width: 900px;
+    height: 52px;
+    position: fixed;
+    top: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: grid;
+    place-items: center;
+    background-color: rgba($PureWhite, 0);
+    transition: background-color .3s ease;
+    z-index: 100;
+    border-radius: 999px;
+    
+    &.scrolled {
+        background-color: rgba($PureWhite, 1);
+    }
+
+    @include mq("tab") {
+        top: 16px;
+        height: 48px;
+    }
+
+    @include mq("sp") {
+        display: none;
+    }
+
+    &-inner {
+        width: 100%;
+        padding: 0 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &-logo {
+        width: 160px;
+        display: grid;
+        place-content: center;
+
+        &__image {
+            width: 100%;
+        }
+    }
+
+    &-ul {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+    }
+
+    &-list {
+
+        &__item {
+            font-family: $Poppins;
+            font-size: 20px;
+            font-weight: bold;
+            transition: all 0.3s ease-in-out;
+
+            &:hover {
+                opacity: .6;
+            }
+
+            @include mq("tab") {
+                font-size: 18px;
+            }
+        }
+    }
+
+    &-cta {
+        width: 140px;
+        height: 36px;
+
+        &__text {
+            font-size: 14px;
+        }
+    }
+}
+
+// ハンバーガーメニュー
+.drawer {
+    display: none;
+    visibility: hidden;
+
+    @include mq("sp") {
+        display: block;
+        visibility: visible;
+    }
+
+    &-icon {
+        width: 42px;
+        height: 42px;
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        z-index: 102;
+        background-color: $Primary-color-light;
+        border-radius: 6px;
+
+        @include mq("tab") {
+            top: 15px;
+        }
+
+        &.clicked {
+            
+            .drawer-icon__bar1 {
+                top: 10px;
+                transform: rotate(-45deg);
+            }
+            .drawer-icon__bar2 {
+                display: none;
+            }
+            .drawer-icon__bar3 {
+                top: 10px;
+                transform: rotate(45deg);
+            }
+        }
+
+        &__bars {
+            width: 18px;
+            height: 18px;
+            position: relative;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        &__bar1,
+        &__bar2,
+        &__bar3 {
+            width: 100%;
+            height: 2px;
+            background-color: $font-base;
+            position: absolute;
+            transition: all 0.3s ease-in-out;
+            border-radius: 16px;
+
+            &.lp-bar {
+                background-color: $PureWhite;
+            }
+        }
+        &__bar1 {
+            top: 0;
+        }
+        &__bar2 {
+            top: 6px;
+        }
+        &__bar3 {
+            top: 12px;
+        }
+    }
+
+    &-logo {
+        width: 254px;
+        display: block;
+        margin: 18px 12px;
+
+        &__img {
+            width: 100%;
+        }
+    }
+
+    &-content {
+        width: 100%;
+        height: auto;
+        max-height: 100%;
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 0;
+        padding-top: 100px;
+        transform: translateY(-200%);
+        transition: all 0.3s ease-in-out;
+        background-color: $PureWhite;
+        border-radius: 0 0 20px 20px;
+        overflow: scroll;
+
+        &.clicked {
+            z-index: 101;
+            transform: translateX(0);
+        }
+
+        &__container {
+            padding: 0 2em 40px 2em;
+        }
+
+
+        &__list {
+            width: 100%;
+            border-top: 1px solid $font-base;
+            border-bottom: 1px solid $font-base;
+            text-align: center;
+            
+            &:not(:first-child) {
+                border-top: none;
+            }
+        }
+        
+        &__item {
+            width: 100%;
+            height: 100%;
+            padding: 16px 2em;
+            display: block;
+            font-family: $Poppins;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        
+    }
+
+    &-buttons {
+        margin-top: 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+    
+    &-button {
+        width: 295px;
+        max-width: 100%;
+        height: 48px;
+        display: grid;
+        place-items: center;
+        position: relative;
+        border-radius: 40px;
+
+        &__text {
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        &__arrow {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+        }
+    }
+    &-cta-button {
+        background-color: $font-hero;
+        color: $PureWhite;
+    }
+
+    &-background {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 0;
+        transform: translateY(-200%);
+        background-color: rgba(0, 0, 0, 0.5);
+        transition: all 0.3s ease;
+        
+        &.clicked {
+            transform: translateY(0%);
+            z-index: 99;
+        }
+    }
+}

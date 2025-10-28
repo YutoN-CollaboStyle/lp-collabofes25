@@ -1,0 +1,25 @@
+@charset "UTF-8";
+/* ========================================================================
+Globals - グローバルズ
+======================================================================== */
+@use "globals/color" as *;
+@use "globals/reset" as *;
+@use "globals/mixin" as *;
+@use "globals/variables" as *;
+
+/* ========================================================================
+	Layout - レイアウト
+======================================================================== */
+@use "layout/common" as *;
+@use "layout/header" as *;
+@use "layout/footer" as *;
+
+/* ========================================================================
+	Objects - オブジェクト
+======================================================================== */
+@use "./objects/hero" as *;
+@use "./objects/collaborator" as *;
+@use "./objects/timetable" as *;
+@use "./objects/outline" as *;
+@use "./objects/access" as *;
+@use "./objects/contact" as *;

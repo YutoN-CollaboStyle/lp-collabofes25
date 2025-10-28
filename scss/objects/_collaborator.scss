@@ -1,0 +1,139 @@
+@use "../globals/global"  as *;
+
+.collaborator {
+    padding: 64px 2rem;
+    position: relative;
+
+    @include mq("sp") {
+        padding: 32px 0;
+    }
+
+    &:before {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        background: url(../images/cfes25-lp-collaborator-bg.webp) center center / cover;
+        
+        @include mq("sp") {
+            background: url(../images/cfes25-lp-collaborator-bg-sp-2itemver.webp) center center / cover;
+        }
+    }
+
+    &-title {
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+
+        @include mq("tab") {
+            font-size: 22px;
+        }
+        @include mq("sp") {
+            font-size: 20px;
+        }
+    }
+    
+    &-subtitle {
+        text-align: center;
+        font-weight: 500;
+
+        @media(max-width: 1080px) {
+            font-size: 14px;
+        }
+    }
+
+    &-items {
+        margin-top: 24px;
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+
+        @include mq("tab") {
+            gap: 16px;
+        }
+        @include mq("sp") {
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+    }
+
+    &-item {
+        width: 23.33%;
+        min-width: 245px;
+        padding: 8px 16px;
+        background-color: $PureWhite;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        align-items: center;
+
+        @include mq("sp") {
+            padding: 4px 8px;
+        }
+
+        &__link {
+            width: 100%;
+            height: 100%;
+            display: grid;
+            place-items: center;
+            transition: all 0.3s ease-in-out;
+
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+
+        &__logoArea {
+            height: 96px;
+            display: grid;
+            place-content: center;
+
+            @include mq("sp") {
+                height: 48px;
+            }
+        }
+        &__logo {
+            height: auto;
+            max-height: 96px;
+        }
+        &:nth-child(1) {
+
+            .collaborator-item__logo {
+                width: 88px;
+
+                @include mq("sp") {
+                    width: 64px;
+                }
+            }
+        }
+        &:nth-child(2) {
+
+            .collaborator-item__logo {
+                width: 164px;
+
+                @include mq("sp") {
+                    width: 128px;
+                }
+            }
+        }
+        
+
+        &__linkTextArea {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        &__linkText {
+            font-size: 12px;
+            font-weight: bold;
+        }
+        &__linkIcon {
+            width: 10px;
+        }
+    }
+
+}

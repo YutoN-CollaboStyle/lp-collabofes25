@@ -1,0 +1,262 @@
+@use "../globals/global" as *;
+
+.contact {
+    padding: 80px 0;
+    background-color: $Primary-color;
+
+    @include mq("sp") {
+        padding: 40px 0;
+    }
+
+    &-container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 40px 24px;
+        background-color: $PureWhite;
+        border-radius: 12px;
+
+        @media (max-width: 767px) and (min-width: 481px) {
+          padding: 24px 12px;
+        }
+        @media (max-width: 480px) {
+          padding: 24px 0;
+        }
+    }
+
+    &-titleArea {
+        text-align: center;
+    }
+
+    &__note {
+      margin-top: 16px;
+      color: red;
+      text-align: center;
+
+      @include mq("sp") {
+        font-size: 12px;
+      }
+      
+      & > span {
+        font-weight: bold;
+      }
+    }
+}
+
+/*Marketo-form*/
+form.mktoForm{
+    width: 100% !important;
+    max-width: 720px;
+    margin: 40px auto 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+
+    @include mq("sp") {
+        margin: 16px auto 0;
+    }
+    a{
+      font-weight: 500;
+    }
+    input,select,textarea{
+      border: 1px solid #dadada;
+      margin: 0 auto !important;
+      float: none !important;
+      padding: 10px 6px !important;
+      font-size: 1.4rem;
+      line-height: 1.25;
+      min-height: 35px !important;
+    }
+    div.mktoOffset{
+      display: none !important;
+    }
+    .mktoFormRow{
+      display: flex;
+      width: 100%;
+
+      @include mq("sp") {
+        gap: 1.2%;
+      }
+
+      &:not(:first-child) {
+        margin-top: 12px;
+      }
+      &:nth-child(8) {
+
+        .mktoLabel {
+          flex-wrap: wrap;
+
+          @include mq("sp") {
+            
+            & > a {
+              padding: 4px 0;
+            }
+          }
+
+          .mktoAsterix {
+            width: 100%;
+          }
+        }
+      }
+
+      .mktoFormCol{
+        width: 100% !important;
+        &:nth-child(2){
+          margin-left: 10px;
+        }
+        .mktoFieldWrap{
+          width: 100% !important;
+          position: relative;
+          div.mktoGutter{
+            display: none !important;
+          }
+          label.mktoLabel{
+            float: none;
+            width: 100% !important;
+            font-size: 1.2rem;
+            padding: .25em 0;
+            display: flex;
+            gap: 1%;
+            
+            @include mq("sp") {
+              font-size: 1rem;
+            }
+          }
+          &.mktoRequiredField{
+            .mktoAsterix{
+              font-size: 0;
+              float: none;
+              padding: 0;
+              display: block;
+
+              &::after{
+                content: "必須";
+                font-size: .8rem;
+                padding: .25em .5em;
+                background-color: red;
+                color: #fff;
+                border-radius: 3px;
+
+                @include mq("sp") {
+                  font-size: .6rem;
+                }
+              }
+            }
+          }
+          .mktoCheckboxList {
+            position: relative;
+          }
+          input[type="checkbox"] {
+            position: absolute;
+            top: 0;
+            left: 0;
+          }
+          input,
+          textarea,
+          select{
+            width: 100% !important;
+            display: block;
+            padding: 0;
+          }
+        }
+      }
+    }
+    .mktoError{
+      right: 0 !important;
+      bottom: -35px !important;
+    }
+    .mktoButtonRow{
+      width: 100% !important;
+      margin-top: 20px;
+      span.mktoButtonWrap{
+        margin: 0 !important;
+        button.mktoButton[type=submit]{
+          width: 360px;
+          max-width: 100%;
+          height: 64px;
+          display: block;
+          margin: 0 auto;
+          border: none;
+          border-radius: 32px;
+          transition: all .3s ease-in-out;
+          font-size: 16px;
+          font-weight: bold;
+          color: $PureWhite;
+          background: $Primary-color;
+          box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+
+          @include mq("sp") {
+            width: 100%;
+            max-width: 320px;
+            height: 48px;
+            line-height: 1.2;
+            font-size: 14px;
+          }
+
+          &:hover{
+            background-color: $secondary-blue;
+            box-shadow: none;
+          }
+        }
+      }
+    }
+}
+
+form.mktoForm .mktoFormRow .mktoFormCol .mktoFieldWrap.mktoRequiredField .mktoAsterix::after {
+  white-space: nowrap !important;
+}
+.mktoForm input[type=checkbox], .mktoForm input[type=radio] {
+  visibility: hidden;
+}
+
+.end-message {
+  margin-top: 32px;
+  padding: 24px 0;
+  text-align: center;
+  font-size: 32px;
+  color: $PureWhite;
+  background-color: rgba($navy01, .9);
+
+  @include mq("sp") {
+    margin-top: 24px;
+    font-size: 20px;
+  }
+}
+
+// #mktoForm_2022 > div.mktoHtmlText > p.mktoheadText
+form.mktoForm {
+  
+  .mktoheadText {
+    font-size: 1.2rem !important;
+    
+    @include mq("sp") {
+      font-size: 1rem !important;
+    }
+
+  }
+
+  .mktoHtmlText {
+
+    & > p {
+      font-size: 14px;
+
+      @include mq("sp") {
+        font-size: 12px;
+      }
+    }
+  }
+
+  .mktoHtmlText a {
+    font-weight:500;
+    color:#007BFF;
+  }
+  .mktoHtmlText a:hover {
+    color:#0056b3;
+  }
+  .mktoHtmlText a:visited {
+    color:#C71585;
+    text-decoration:none;
+  }
+  .mktoHtmlText a:hover {
+    color:#0056b3;
+  }
+}

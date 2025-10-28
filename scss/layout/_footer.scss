@@ -1,0 +1,131 @@
+@use "../globals/global" as *;
+
+.footer {
+    padding-bottom: 20px;
+    background-color: #222222;
+
+    @include mq("sp") {
+        padding-bottom: 12px;    
+    }
+
+    &-inner {
+        padding-top: 40px;
+        display: flex;
+        justify-content: space-between;
+
+        @include mq("sp") {
+            max-width: 350px;
+            margin: 0 auto;
+            padding-top: 24px;
+            flex-direction: column;
+        }
+    }
+
+    &-left {
+
+        @include mq("sp") {
+            text-align: center;
+        }
+    }
+
+    &-logoArea {
+        width: 190px;
+
+        @include mq("sp") {
+            margin: 0 auto;           
+        }
+    }
+    &-logo {
+        width: 100%;
+        display: grid;
+        place-items: center;
+
+        &__img {
+            width: 100%;
+        }
+
+        &__text {
+            color: $PureWhite;
+            font-size: 14px;
+            text-align: right;
+        }
+    }
+    
+    
+    &__info {
+        margin-top: 16px;
+        font-size: 12px;
+        color: $PureWhite;
+    }
+
+    &-links {
+        margin-bottom: 24px;
+        display: flex;
+        align-items: center;
+        gap: 5%;
+
+        @include mq("sp") {
+            margin-top: 24px;
+            justify-content: center;
+        }
+    }
+    &-link {
+        transition: all .3s ease;
+
+        &:hover {
+            opacity: .7;
+        }
+
+        &__text {
+            font-size: 12px;
+            color: $PureWhite;
+        }
+    }
+
+    &-security {
+        display: flex;
+        align-items: center;
+        gap: 4%;
+
+        @include mq("sp") {
+            gap: 3%;
+            justify-content: center;
+        }
+
+        &__item {
+
+            &:nth-child(1) {
+                width: 140px;
+
+                @include mq("sp") {
+                    width: 100px;
+                }
+            }
+            &:nth-child(2) {
+                width: 140px;
+
+                @include mq("sp") {
+                    width: 100px;
+                }
+            }
+            &:nth-child(3) {
+                width: 64px;
+
+                @include mq("sp") {
+                    width: 50px;
+                }
+            }
+        }
+
+        &__img {
+            width: 100%;
+        }
+    }
+
+    &-copyright {
+        margin-top: 24px;
+        text-align: center;
+        font-size: 10px;
+        color: $PureWhite;
+    }
+}
