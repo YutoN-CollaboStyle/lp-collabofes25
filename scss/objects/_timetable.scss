@@ -280,12 +280,29 @@
                     padding: 4px;
                 }
             }
+
+            &--ul {
+                display: flex;
+                align-items: flex-start;
+                justify-content: center;
+                gap: 4%;
+            }
+
         }
 
         &__break {
             text-align: center;
             font-weight: bold;
             
+            @include mq("sp") {
+                font-size: 14px;
+            }
+        }
+
+        &__smalltitle {
+            text-align: center;
+            font-weight: bold;
+
             @include mq("sp") {
                 font-size: 14px;
             }
@@ -485,6 +502,10 @@
                     max-width: 136px;
                     height: 80px;
                 }
+            }
+            &.vertical {
+                max-width: 128px;
+                height: auto;
             }
 
         }
