@@ -1239,12 +1239,27 @@ Globals - グローバルズ
     padding: 4px;
   }
 }
+.timetable-wrap__block--ul {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 4%;
+}
 .timetable-wrap__break {
   text-align: center;
   font-weight: bold;
 }
 @media (max-width: 767px) {
   .timetable-wrap__break {
+    font-size: 14px;
+  }
+}
+.timetable-wrap__smalltitle {
+  text-align: center;
+  font-weight: bold;
+}
+@media (max-width: 767px) {
+  .timetable-wrap__smalltitle {
     font-size: 14px;
   }
 }
@@ -1444,6 +1459,10 @@ Globals - グローバルズ
     max-width: 136px;
     height: 80px;
   }
+}
+.timetable-wrap__itemImageArea.vertical {
+  max-width: 128px;
+  height: auto;
 }
 .timetable-wrap__itemImage {
   width: 100%;
